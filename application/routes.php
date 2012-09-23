@@ -37,6 +37,9 @@ Route::get('/', function()
 	return View::make('home.index');
 });
 
+//全局控制器加载
+Route::controller(\Laravel\Routing\Controller::detect());
+
 /*
 |--------------------------------------------------------------------------
 | Application 404 & 500 Error Handlers
