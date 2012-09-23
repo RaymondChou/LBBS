@@ -68,7 +68,7 @@ return array(
 			'username' => 'root',
 			'password' => 'freeze10172418',
 			'charset'  => 'utf8',
-			'prefix'   => ''
+			'prefix'   => 'lbbs_'
 		)
 
 
