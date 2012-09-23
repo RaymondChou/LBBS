@@ -112,3 +112,6 @@ Route::filter('auth', function()
 {
 	if (Auth::guest()) return Redirect::to('login');
 });
+
+// Route for Type_Controller
+Route::controller('type');

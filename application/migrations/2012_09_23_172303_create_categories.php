@@ -1,6 +1,6 @@
 <?php
 
-class Create_Top_Types {
+class Create_Categories {
 
 	/**
 	 * Make changes to the database.
@@ -9,10 +9,12 @@ class Create_Top_Types {
 	 */
 	public function up()
 	{
-		Schema::create('top_types',function($table)
+		Schema::create('categories',function($table)
         {
+            $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->string('name',32);
+            $table->string('name');
+            $table->integer('sort');
             $table->timestamps();
         });
 	}
@@ -24,7 +26,7 @@ class Create_Top_Types {
 	 */
 	public function down()
 	{
-        Schema::drop('top_types');
+		Schema::drop('categories');
 	}
 
 }
