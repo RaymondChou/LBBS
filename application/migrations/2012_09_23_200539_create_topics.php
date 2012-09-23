@@ -14,10 +14,10 @@ class Create_Topics {
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('poster_name')->default('');
+            $table->integer('poster_id');
             $table->string('subject')->default('');
             $table->string('mini_info',1000)->default('');
             $table->string('image')->nullable();
-            $table->integer('poster_id');
             $table->integer('bar_id');
             $table->integer('first_post_id');
             $table->timestamp('last_post_at')->nullable();
@@ -29,6 +29,9 @@ class Create_Topics {
             $table->boolean('closed')->default(0);
             $table->boolean('hold_top')->default(0);
             $table->timestamps();
+
+            $table->index('bar_id');
+            $table->index('first_post_id');
         });
 	}
 
