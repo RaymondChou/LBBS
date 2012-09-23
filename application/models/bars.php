@@ -4,9 +4,9 @@ class Bars extends Eloquent {
 
     public static $timestamps = true;
 
-	public function posts()
+	public function topics()
 	{
-		return $this->has_many('Post');
+		return $this->has_many('Topic');
 	}
 
 }
