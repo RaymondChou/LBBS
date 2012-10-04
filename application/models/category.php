@@ -1,6 +1,6 @@
 <?php
 
-class Categories extends Eloquent {
+class Category extends Eloquent {
 
     public static $timestamps = true;
 
@@ -8,5 +8,10 @@ class Categories extends Eloquent {
 	{
 		return $this->has_many('Bar');
 	}
+
+    public function get_true_bars()
+    {
+        return true;
+    }
 
 }
