@@ -32,13 +32,43 @@
 |
 */
 
-Route::get('/', function()
+Route::get('/', array('before' => 'auth', function()
 {
 	return View::make('home.index');
+}));
+
+//登录页
+Route::get('login', array('as' => 'login', function()
+{
+    return \Laravel\View::make('user.login');
+}));
+
+//提交登录
+Route::post('login',function()
+{
+    $credentials = array('username' => Input::get('username'), 'password' => Input::get('password'));
+    if(Auth::attempt($credentials))
+    {
+        return '登录成功';
+    }
+    else
+    {
+        return Redirect::to('login');
+    }
 });
 
+//注销
+Route::get('logout', array('as' => 'logout', function()
+{
+    Auth::logout();
+    return Redirect::to('/');
+}));
+
+//注册
+Route::get('register','user.home@register');
+
 //全局控制器加载
-Route::controller(\Laravel\Routing\Controller::detect());
+//Route::controller(\Laravel\Routing\Controller::detect());
 
 /*
 |--------------------------------------------------------------------------

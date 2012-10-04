@@ -1,7 +1,12 @@
 <?php
 
-class Posts extends Eloquent {
+class Post extends Eloquent {
 
     public static $timestamps = true;
+
+    public function __construct()
+    {
+
+    }
 
 }

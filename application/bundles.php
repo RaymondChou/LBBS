@@ -36,5 +36,6 @@
 return array(
 
 	'bob' => array(),
+    'bootstrapper' => array('auto' => true)
 
 );
