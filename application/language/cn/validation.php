@@ -18,26 +18,26 @@ return array(
 	|
 	*/
 
-	"accepted"       => "The :attribute must be accepted.",
-	"active_url"     => "The :attribute is not a valid URL.",
-	"after"          => "The :attribute must be a date after :date.",
-	"alpha"          => "The :attribute may only contain letters.",
-	"alpha_dash"     => "The :attribute may only contain letters, numbers, and dashes.",
-	"alpha_num"      => "The :attribute may only contain letters and numbers.",
-	"array"          => "The :attribute must have selected elements.",
-	"before"         => "The :attribute must be a date before :date.",
+	"accepted"       => ":attribute 必须允许",
+	"active_url"     => ":attribute 不是一个有效的链接",
+	"after"          => ":attribute 必须在:date日期之后",
+	"alpha"          => ":attribute 只能包含英文字母",
+	"alpha_dash"     => ":attribute 只能包含字母,数字和符号",
+	"alpha_num"      => ":attribute 只能包含字母和数字",
+	"array"          => ":attribute 只能包含选项",
+	"before"         => ":attribute 必须在:date日期之前",
 	"between"        => array(
-		"numeric" => "The :attribute must be between :min - :max.",
-		"file"    => "The :attribute must be between :min - :max kilobytes.",
-		"string"  => "The :attribute must be between :min - :max characters.",
+		"numeric" => ":attribute 范围必须是:min - :max.",
+		"file"    => ":attribute 范围必须是 :min - :max kb.",
+		"string"  => ":attribute 范围必须是 :min - :max 个字符.",
 	),
-	"confirmed"      => "The :attribute confirmation does not match.",
+	"confirmed"      => ":attribute 不相符",
 	"count"          => "The :attribute must have exactly :count selected elements.",
 	"countbetween"   => "The :attribute must have between :min and :max selected elements.",
 	"countmax"       => "The :attribute must have less than :max selected elements.",
 	"countmin"       => "The :attribute must have at least :min selected elements.",
 	"different"      => "The :attribute and :other must be different.",
-	"email"          => "The :attribute format is invalid.",
+	"email"          => ":attribute 必须是一个有效的邮箱地址",
 	"exists"         => "The selected :attribute is invalid.",
 	"image"          => "The :attribute must be an image.",
 	"in"             => "The selected :attribute is invalid.",
@@ -45,26 +45,26 @@ return array(
 	"ip"             => "The :attribute must be a valid IP address.",
 	"match"          => "The :attribute format is invalid.",
 	"max"            => array(
-		"numeric" => "The :attribute must be less than :max.",
-		"file"    => "The :attribute must be less than :max kilobytes.",
-		"string"  => "The :attribute must be less than :max characters.",
+		"numeric" => ":attribute 必须小于 :max.",
+		"file"    => ":attribute 必须小于 :max kb.",
+		"string"  => ":attribute 必须小于 :max 个字符.",
 	),
 	"mimes"          => "The :attribute must be a file of type: :values.",
 	"min"            => array(
-		"numeric" => "The :attribute must be at least :min.",
-		"file"    => "The :attribute must be at least :min kilobytes.",
-		"string"  => "The :attribute must be at least :min characters.",
+		"numeric" => ":attribute 必须大于 :min.",
+		"file"    => ":attribute 必须大于 :min kb.",
+		"string"  => ":attribute 必须大于 :min 个字符.",
 	),
 	"not_in"         => "The selected :attribute is invalid.",
-	"numeric"        => "The :attribute must be a number.",
-	"required"       => "The :attribute field is required.",
+	"numeric"        => ":attribute 必须是数字",
+	"required"       => ":attribute 必须输入",
 	"same"           => "The :attribute and :other must match.",
 	"size"           => array(
 		"numeric" => "The :attribute must be :size.",
 		"file"    => "The :attribute must be :size kilobyte.",
 		"string"  => "The :attribute must be :size characters.",
 	),
-	"unique"         => "The :attribute has already been taken.",
+	"unique"         => ":attribute 已经存在",
 	"url"            => "The :attribute format is invalid.",
 
 	/*
@@ -99,6 +99,12 @@ return array(
 	|
 	*/
 
-	'attributes' => array(),
+	'attributes' => array(
+        'email' => '邮箱',
+        'username' => '用户名',
+        'password' => '密码',
+        'password_confirmation' => '确认密码',
+        'fullname' => '姓名',
+    ),
 
 );
