@@ -39,8 +39,19 @@ Asset::container('bootstrapper')->bundle('bootstrapper');
 Asset::container('bootstrapper')->add('jquery',  'js/jquery-1.8.1.min.js');
 
 //Asset::container('bootstrapper')->add('bootstrap',  'css/bootstrap.css');
-Asset::container('bootstrapper')->add('bootstrap',  'css/bootstrap.min.css');
-
+$style = Cookie::get('style', 'default');
+switch($style)
+{
+    case 'default':
+        Asset::container('bootstrapper')->add('bootstrap',  'css/bootstrap.min.css');
+        break;
+    default:
+        Asset::container('bootstrapper')->add('bootstrap',  'css/bootstrap.min.css');
+        break;
+    case 'orange':
+        Asset::container('bootstrapper')->add('bootstrap',  'css/bootstrap.orange.css');
+        break;
+}
 //Not Needed if you don't have the top nav bar
 Asset::container('bootstrapper')->add('nav-fix',  'css/nav-fix.css');
 

@@ -67,6 +67,13 @@ Route::get('logout', array('as' => 'logout', function()
 //注册
 Route::get('register','user.home@register');
 Route::controller('user.home');
+
+//主题
+Route::get('style/(:any)', function($style = 'default')
+{
+    Cookie::forever('style',$style);
+});
+
 //全局控制器加载
 //Route::controller(\Laravel\Routing\Controller::detect());
 

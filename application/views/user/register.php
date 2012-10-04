@@ -15,7 +15,7 @@
     <div class="control-group">
         <label class="control-label" for="username">用户名</label>
         <div class="controls">
-            <input type="text" class="input-xlarge" id="username" name="username" placeholder="Enter Your Username...">
+            <input type="text" class="input-xlarge" id="username" name="username" placeholder="Enter Your Username..." value="<?php echo Input::old('username')?>">
         </div>
     </div>
     <div class="control-group">

@@ -8,11 +8,6 @@
 class User_Home_Controller extends Base_Controller{
     public $restful = true;
 
-    public function get_index()
-    {
-        return 'hello';
-    }
-
     public function get_register()
     {
         return \Laravel\View::make('user.register');
