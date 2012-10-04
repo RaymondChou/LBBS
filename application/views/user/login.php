@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <?php echo Asset::container('bootstrapper')->styles();?>
-        <?php echo Asset::container('bootstrapper')->scripts();?>
-    </head>
+<?php echo View::make('partials.header', get_defined_vars())->render()?>
 
-    <body>
-        <div class="container">
-
+<div class="container">
+    <div class="offset2">
             <h1>登录</h1>
             <?php echo Form::open('login', 'POST',array('class'=>'form-inline'));?>
             <?php echo Form::token()?>
@@ -26,5 +20,6 @@
             <input type="submit" class="btn btn-primary" value="登录" />
             <?php echo Form::close()?>
         </div> <!-- /container -->
-    </body>
-</html>
+    </div>
+
+<?php echo View::make('partials.footer', get_defined_vars())->render()?>

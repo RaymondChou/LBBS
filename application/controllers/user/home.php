@@ -10,7 +10,7 @@ class User_Home_Controller extends Base_Controller{
 
     public function get_register()
     {
-        return \Laravel\View::make('user.register');
+        return View::make('user.register');
     }
 
     public function post_register()

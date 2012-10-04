@@ -32,7 +32,8 @@
 |
 */
 
-Route::get('/', array('before' => 'auth', function()
+//首页
+Route::get('/', array('before' => '', function()
 {
 	return View::make('home.index');
 }));
@@ -72,6 +73,7 @@ Route::controller('user.home');
 Route::get('style/(:any)', function($style = 'default')
 {
     Cookie::forever('style',$style);
+    return Redirect::to(\Laravel\Input::get('url'));
 });
 
 //全局控制器加载
@@ -149,6 +151,3 @@ Route::filter('auth', function()
 {
 	if (Auth::guest()) return Redirect::to('login');
 });
-
-// Route for Type_Controller
-Route::controller('type');

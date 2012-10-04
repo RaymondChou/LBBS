@@ -14,6 +14,8 @@
 
 ini_set('display_errors', 'On');
 
+//网站名称
+define('WEB_NAME','LBBS');
 /*
 |--------------------------------------------------------------------------
 | Laravel Configuration Loader
