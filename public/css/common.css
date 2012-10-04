@@ -1,3 +1,10 @@
+@charset "utf-8";
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: 微软雅黑,Microsoft YaHei;
+}
+
 .table th, .table td {
     vertical-align: inherit;
 }
