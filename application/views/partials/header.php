@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title><?php echo WEB_NAME?></title>
+    <title><?php echo $title.' - '.WEB_NAME?></title>
     <?php echo Asset::container('bootstrapper')->styles();?>
     <?php echo Asset::container('bootstrapper')->scripts();?>
     <?php Asset::add('common','css/common.css')?>
@@ -27,7 +27,7 @@
             <!-- Everything you want hidden at 940px or less, place within here -->
             <div class="nav-collapse">
                 <ul class="nav">
-                    <li class="active"><a href="<?php echo URL::base()?>">首页</a></li>
+                    <li <?php if($title=='首页') echo 'class="active"'?>><a href="<?php echo URL::base()?>">首页</a></li>
                     <li><a href="#">Link</a></li>
                     <li><a href="#">Link</a></li>
                     <li class="dropdown">
@@ -45,23 +45,36 @@
                 </ul>
 
                 <ul class="nav pull-right">
-                    <li><a href="<?php echo URL::to('login')?>">登陆</a></li>
-                    <li><a href="<?php echo URL::to('register')?>">注册</a></li>
+                    <?php if(!Auth::check()):?>
+                    <li <?php if($title=='登陆') echo 'class="active"'?>><a href="<?php echo URL::to('login?url='.URL::current())?>">登陆</a></li>
+                    <li <?php if($title=='注册') echo 'class="active"'?>><a target="_blank" href="<?php echo URL::to('register?url='.URL::current())?>">注册</a></li>
+                    <?php else:?>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">账号<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li class="nav-header"><?php echo Auth::user()->fullname?></li>
+                            <li class="divider"></li>
+                            <?php if(Auth::user()->admin_auth != null){?>
+                            <li><a href="<?php echo URL::to('admin')?>">管理员</a></li>
+                            <?php }?>
+                            <li><a href="<?php echo URL::to('logout?url='.URL::current())?>">退出登陆</a></li>
+                        </ul>
+                    </li>
+                    <?php endif;?>
 
-                    <li class="divider-vertical"></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">风格<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="<?php echo URL::to('style/default?url='.URL::full())?>">默认</a></li>
-                            <li><a href="<?php echo URL::to('style/orange?url='.URL::full())?>">橙色</a></li>
-                            <li><a href="<?php echo URL::to('style/blackorange?url='.URL::full())?>">黑橙</a></li>
-                            <li><a href="<?php echo URL::to('style/deepblack?url='.URL::full())?>">深黑</a></li>
-                            <li><a href="<?php echo URL::to('style/gray?url='.URL::full())?>">灰暗</a></li>
-                            <li><a href="<?php echo URL::to('style/lightblue?url='.URL::full())?>">蓝色</a></li>
-                            <li><a href="<?php echo URL::to('style/readable?url='.URL::full())?>">清新</a></li>
-                            <li><a href="<?php echo URL::to('style/redgray?url='.URL::full())?>">文艺</a></li>
-                            <li><a href="<?php echo URL::to('style/sleek?url='.URL::full())?>">银色</a></li>
-                            <li><a href="<?php echo URL::to('style/wood?url='.URL::full())?>">墨绿</a></li>
+                            <li><a href="<?php echo URL::to('style/default?url='.URL::current())?>">默认</a></li>
+                            <li><a href="<?php echo URL::to('style/orange?url='.URL::current())?>">橙色</a></li>
+                            <li><a href="<?php echo URL::to('style/blackorange?url='.URL::current())?>">黑橙</a></li>
+                            <li><a href="<?php echo URL::to('style/deepblack?url='.URL::current())?>">深黑</a></li>
+                            <li><a href="<?php echo URL::to('style/gray?url='.URL::current())?>">灰暗</a></li>
+                            <li><a href="<?php echo URL::to('style/lightblue?url='.URL::current())?>">蓝色</a></li>
+                            <li><a href="<?php echo URL::to('style/readable?url='.URL::current())?>">清新</a></li>
+                            <li><a href="<?php echo URL::to('style/redgray?url='.URL::current())?>">文艺</a></li>
+                            <li><a href="<?php echo URL::to('style/sleek?url='.URL::current())?>">银色</a></li>
+                            <li><a href="<?php echo URL::to('style/wood?url='.URL::current())?>">墨绿</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -69,4 +82,8 @@
 
         </div>
     </div>
+</div>
+
+<div class="span5" style="padding-right: 100px;padding-top: 60px; position: absolute;top: 0;right: 0;z-index: 999;">
+    <?php echo Messages::get_html()?>
 </div>

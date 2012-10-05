@@ -10,20 +10,20 @@ class User_Home_Controller extends Base_Controller{
 
     public function get_register()
     {
-        return View::make('user.register');
+        return View::make('user.register',array('title' => '注册'));
     }
 
     public function post_register()
     {
-        $input = \Laravel\Input::all();
+        $this->before('csrf');
         $rules = array(
-            'username'    => 'required|max:16|unique:users',
-            'password'    => 'required|alpha_dash|confirmed',
-            'password_confirmation' => 'required|alpha_dash',
-            'fullname'    => 'required|alpha_dash',
-            'email'       => 'required|email',
+            'username'              => 'required|max:16|unique:users',
+            'password'              => 'required|between:6,16|alpha_dash|confirmed',
+            'password_confirmation' => 'required|between:6,16|alpha_dash',
+            'fullname'              => 'required|between:2,16|alpha_dash',
+            'email'                 => 'required|email',
         );
-        $validation = Validator::make($input, $rules);
+        $validation = Validator::make(\Laravel\Input::get(), $rules);
         if($validation->fails())
         {
             Messages::add('error',$validation->errors->all());
@@ -31,7 +31,19 @@ class User_Home_Controller extends Base_Controller{
         }
         else
         {
-            return 'success';
+            Input::merge(array(
+                'registration_ip' => \Laravel\Request::ip()
+            ));
+            $user = new User;
+            $user->username = Input::get('username');
+            $user->password = Input::get('password');
+            $user->fullname = Input::get('fullname');
+            $user->email = Input::get('email');
+            $user->registration_ip = Input::get('registration_ip');
+            $user->save();
+
+            Messages::add('success','注册成功,请登陆');
+            return Redirect::to('login')->with_input('only', array('username'));
         }
     }
 }

@@ -35,13 +35,13 @@
 //首页
 Route::get('/', array('before' => '', function()
 {
-	return View::make('home.index');
+	return View::make('home.index',array('title' => '首页'));
 }));
 
 //登录页
 Route::get('login', array('as' => 'login', function()
 {
-    return \Laravel\View::make('user.login');
+    return \Laravel\View::make('user.login',array('title' => '登陆'));
 }));
 
 //提交登录
@@ -50,11 +50,15 @@ Route::post('login',function()
     $credentials = array('username' => Input::get('username'), 'password' => Input::get('password'));
     if(Auth::attempt($credentials))
     {
-        return '登录成功';
+        Messages::add('success','登陆成功');
+        if(Input::get('url'))
+            return Redirect::to(Input::get('url'));
+        else
+            return Redirect::home();
     }
     else
     {
-        return Redirect::to('login');
+        return Redirect::to(URL::full());
     }
 });
 

@@ -5,7 +5,7 @@
     <div>您还未登陆</div>
     <hr>
     <table class="table table-hover">
-        <thead style="background-color: #f8f8ff;">
+        <thead style="background-color: #EBEBEB;color: #333;">
         <tr>
             <th></th>
             <th>话题</th>
