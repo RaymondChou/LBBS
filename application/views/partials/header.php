@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<div class="navbar">
+<div class="navbar" style="padding-bottom: 50px;">
     <div class="navbar-inner navbar-fixed-top">
         <div class="container">
 
@@ -54,6 +54,14 @@
                         <ul class="dropdown-menu">
                             <li><a href="<?php echo URL::to('style/default?url='.URL::full())?>">默认</a></li>
                             <li><a href="<?php echo URL::to('style/orange?url='.URL::full())?>">橙色</a></li>
+                            <li><a href="<?php echo URL::to('style/blackorange?url='.URL::full())?>">黑橙</a></li>
+                            <li><a href="<?php echo URL::to('style/deepblack?url='.URL::full())?>">深黑</a></li>
+                            <li><a href="<?php echo URL::to('style/gray?url='.URL::full())?>">灰暗</a></li>
+                            <li><a href="<?php echo URL::to('style/lightblue?url='.URL::full())?>">蓝色</a></li>
+                            <li><a href="<?php echo URL::to('style/readable?url='.URL::full())?>">清新</a></li>
+                            <li><a href="<?php echo URL::to('style/redgray?url='.URL::full())?>">文艺</a></li>
+                            <li><a href="<?php echo URL::to('style/sleek?url='.URL::full())?>">银色</a></li>
+                            <li><a href="<?php echo URL::to('style/wood?url='.URL::full())?>">墨绿</a></li>
                         </ul>
                     </li>
                 </ul>

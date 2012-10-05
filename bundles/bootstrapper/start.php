@@ -51,6 +51,30 @@ switch($style)
     case 'orange':
         Asset::container('bootstrapper')->add('bootstrap',  'css/bootstrap.orange.css');
         break;
+    case 'blackorange':
+        Asset::container('bootstrapper')->add('bootstrap',  'css/bootstrap.blackorange.min.css');
+        break;
+    case 'deepblack':
+        Asset::container('bootstrapper')->add('bootstrap',  'css/bootstrap.deepblack.min.css');
+        break;
+    case 'gray':
+        Asset::container('bootstrapper')->add('bootstrap',  'css/bootstrap.gray.min.css');
+        break;
+    case 'lightblue':
+        Asset::container('bootstrapper')->add('bootstrap',  'css/bootstrap.lightblue.min.css');
+        break;
+    case 'readable':
+        Asset::container('bootstrapper')->add('bootstrap',  'css/bootstrap.readable.min.css');
+        break;
+    case 'redgray':
+        Asset::container('bootstrapper')->add('bootstrap',  'css/bootstrap.redgray.min.css');
+        break;
+    case 'sleek':
+        Asset::container('bootstrapper')->add('bootstrap',  'css/bootstrap.sleek.min.css');
+        break;
+    case 'wood':
+        Asset::container('bootstrapper')->add('bootstrap',  'css/bootstrap.wood.min.css');
+        break;
 }
 //Not Needed if you don't have the top nav bar
 Asset::container('bootstrapper')->add('nav-fix',  'css/nav-fix.css');
