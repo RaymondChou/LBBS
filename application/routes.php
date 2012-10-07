@@ -80,6 +80,8 @@ Route::get('style/(:any)', function($style = 'default')
     return Redirect::to(\Laravel\Input::get('url'));
 });
 
+Route::controller('api.user');
+
 //全局控制器加载
 //Route::controller(\Laravel\Routing\Controller::detect());
 

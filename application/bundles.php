@@ -36,6 +36,8 @@
 return array(
 
 	'bob' => array(),
-    'bootstrapper' => array('auto' => true)
+    'bootstrapper' => array('auto' => true),
+
+    'rest_service_api' => array('auto' => true, 'handles' => 'api_docs')
 
 );
